@@ -2,25 +2,24 @@ const uiConfigs = {
   style: {
     gradientBgImage: {
       dark: {
-        backgroundImage: "linear-gradient(to top, rgba(0,0,0,1), tgba(0,0,0,0)",
+        backgroundImage:
+          "linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))",
       },
       light: {
         backgroundImage:
-          "linear-gradient(to top, rgba(245,245,245,1), tgba(0,0,0,0)",
+          "linear-gradient(to top, rgba(245,245,245,1), rgba(0,0,0,0))",
       },
     },
-
     horizontalGradientBgImage: {
       dark: {
         backgroundImage:
-          "linear-gradient(to right, rgba(0,0,0,1), tgba(0,0,0,0)",
+          "linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,0))",
       },
       light: {
         backgroundImage:
-          "linear-gradient(to right, rgba(245,245,245,1), tgba(0,0,0,0)",
+          "linear-gradient(to right, rgba(245,245,245,1), rgba(0,0,0,0))",
       },
     },
-
     typoLines: (lines, textAlign) => ({
       textAlign: textAlign || "justify",
       display: "-webkit-box",
@@ -28,22 +27,19 @@ const uiConfigs = {
       WebkitBoxOrient: "vertical",
       WebkitLineClamp: lines,
     }),
-
     mainContent: {
-      maxWidth: "1336px",
+      maxWidth: "1366px",
       margin: "auto",
       padding: 2,
     },
-
     backgroundImage: (imgPath) => ({
       position: "relative",
       backgroundSize: "cover",
-      backgroundPossition: "center",
+      backgroundPosition: "center",
       backgroundColor: "darkgrey",
       backgroundImage: `url(${imgPath})`,
     }),
   },
-
   size: {
     sidebarWith: "300px",
     contentMaxWidth: "1366px",
