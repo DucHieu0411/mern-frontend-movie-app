@@ -6,7 +6,7 @@ const favoriteEndpoints = {
   remove: ({ favoriteId }) => `user/favorites/${favoriteId}`,
 };
 
-const favoriteId = {
+const favoriteApi = {
   getList: async () => {
     try {
       const response = await privateClient.get(favoriteEndpoints.list);
@@ -44,3 +44,5 @@ const favoriteId = {
     }
   },
 };
+
+export default favoriteApi;
