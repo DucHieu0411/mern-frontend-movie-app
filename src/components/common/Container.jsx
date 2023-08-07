@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, cardHeaderClasses } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
 const Container = ({ header, children }) => {
@@ -30,8 +30,8 @@ const Container = ({ header, children }) => {
               },
             }}
           >
-            <Typography variant="h5" fontWeight="700">
-              {cardHeaderClasses}
+            <Typography variant="h5" fontWeight="700" textTransform="uppercase">
+              {header}
             </Typography>
           </Box>
         )}
