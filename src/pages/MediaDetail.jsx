@@ -66,6 +66,54 @@ const MediaDetail = () => {
     if (!user) return dispatch(setAuthModalOpen(true));
 
     if (onRequest) return;
+
+    if (isFavorite) {
+      onRemoveFavorite();
+      return;
+    }
+
+    setOnRequest(true);
+
+    const body = {
+      mediaId: media.id,
+      mediaTitle: media.title || media.name,
+      mediaType: mediaType,
+      mediaPoster: media.poster_path,
+      mediaRate: media.vote_average,
+    };
+
+    const { response, err } = await favoriteApi.add(body);
+
+    setOnRequest(false);
+
+    if (err) toast.error(err.message);
+    if (response) {
+      dispatch(addFavorite(response));
+      setIsFavorite(true);
+      toast.success("Add favorite success");
+    }
+  };
+
+  const onRemoveFavorite = async () => {
+    if (onRequest) return;
+    setOnRequest(true);
+
+    const favorite = listFavorites.find(
+      (e) => e.mediaId.toString() === media.id.toString()
+    );
+
+    const { response, err } = await favoriteApi.remove({
+      favoriteId: favorite.id,
+    });
+
+    setOnRequest(false);
+
+    if (err) toast.error(err.message);
+    if (response) {
+      dispatch(removeFavorite(favorite));
+      setIsFavorite(false);
+      toast.success("Remove favorite success");
+    }
   };
 
   return media ? (
