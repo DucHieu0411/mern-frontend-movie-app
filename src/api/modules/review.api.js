@@ -16,28 +16,27 @@ const reviewApi = {
         mediaPoster,
         content,
       });
+
       return { response };
     } catch (err) {
       return { err };
     }
   },
-
   remove: async ({ reviewId }) => {
     try {
-      const response = await privateClient.remove(
-        reviewEndpoints.remove({
-          reviewId,
-        })
+      const response = await privateClient.delete(
+        reviewEndpoints.remove({ reviewId })
       );
+
       return { response };
     } catch (err) {
       return { err };
     }
   },
-
   getList: async () => {
     try {
       const response = await privateClient.get(reviewEndpoints.list);
+
       return { response };
     } catch (err) {
       return { err };
